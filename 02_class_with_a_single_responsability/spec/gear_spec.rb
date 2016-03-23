@@ -24,4 +24,16 @@ RSpec.describe Gear do
     end
   end
 
+  describe '#gear_inches' do
+    it 'when attibutes is (52,11,26,1.5) the gear_inches is 137.09' do
+      @gear = Gear.new(52,11,26,1.5)
+      expect(("%.2f" %  @gear.gear_inches).to_f).to eq 137.09 
+    end
+
+    it 'when attibutes is (52,11,24,1.25) the gear_inches is 125.27' do
+      @gear = Gear.new(52,11,24,1.25)
+      expect(("%.2f" %  @gear.gear_inches).to_f).to eq 125.27 
+    end
+  end
+
 end
