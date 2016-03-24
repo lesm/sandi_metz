@@ -8,4 +8,8 @@ class RevealingReferences
   def wheelify(data)
     data.collect { |cell| Wheel.new(cell[0],cell[1]) }
   end
+
+  def diameters
+    [662]
+  end
 end
