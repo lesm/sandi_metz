@@ -10,6 +10,6 @@ class RevealingReferences
   end
 
   def diameters
-    [662]
+    wheels.collect { |wheel| wheel.rim + (wheel.tire * 2) }
   end
 end

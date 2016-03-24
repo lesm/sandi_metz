@@ -20,6 +20,14 @@ RSpec.describe RevealingReferences do
       diameters = revealing_references.diameters
       expect(diameters).to include(662) 
     end
+    
+    it 'When receive [[Wheel.new(622,20)],[Wheel.new(622,23)]] , return [662,668]' do
+      Wheel  = Struct.new(:rim,:tire)
+      wheels = [[622,20],[622,23]]
+      revealing_references = RevealingReferences.new(wheels)
+      diameters = revealing_references.diameters
+      expect(diameters).to include(662,668) 
+    end
   end
 
 end
