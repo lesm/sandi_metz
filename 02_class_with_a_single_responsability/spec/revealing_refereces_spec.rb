@@ -1,9 +1,9 @@
 require 'revealing_references'
 
 RSpec.describe RevealingReferences do 
+  let(:Wheel) { Struct.new(:rim,:tire) }
   describe '#Initialize' do
     it 'Create instance with two-dimensional array' do
-      Wheel = Struct.new(:rim,:tire)
       wheel = Wheel.new(500,20)
       wheels = [[500,20]]
       @revealing_references = RevealingReferences.new(wheels)
@@ -13,16 +13,14 @@ RSpec.describe RevealingReferences do
   end
 
   describe '#diameters' do
-    it 'When receive [[Wheel.new(622,20)]] , return [662]' do
-      Wheel  = Struct.new(:rim,:tire)
+    it 'When receive [[622,20]] , return [662]' do
       wheels = [[622,20]]
       revealing_references = RevealingReferences.new(wheels)
       diameters = revealing_references.diameters
       expect(diameters).to include(662) 
     end
     
-    it 'When receive [[Wheel.new(622,20)],[Wheel.new(622,23)]] , return [662,668]' do
-      Wheel  = Struct.new(:rim,:tire)
+    it 'When receive [[622,20],[622,23]] , return [662,668]' do
       wheels = [[622,20],[622,23]]
       revealing_references = RevealingReferences.new(wheels)
       diameters = revealing_references.diameters
