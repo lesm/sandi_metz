@@ -8,5 +8,9 @@ class Wheel
   def diameter
     rim + (tire * 2)
   end
+
+  def circunference
+    diameter * Math::PI
+  end
   
 end
